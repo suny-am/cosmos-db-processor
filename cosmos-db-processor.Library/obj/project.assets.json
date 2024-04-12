@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor/cosmos-db-processor.csproj",
-      "projectName": "cosmos-db-processor",
-      "projectPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor/cosmos-db-processor.csproj",
+      "projectUniqueName": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj",
+      "projectName": "cosmos-db-processor.Library",
+      "projectPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj",
       "packagesPath": "/home/sunyam/.nuget/packages/",
-      "outputPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor/obj/",
+      "outputPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Library/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/sunyam/.nuget/NuGet/NuGet.Config"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor/cosmos-db-processor.csproj": {}
+    "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Console/cosmos-db-processor.Console.csproj": {}
   },
   "projects": {
-    "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor/cosmos-db-processor.csproj": {
+    "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Console/cosmos-db-processor.Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor/cosmos-db-processor.csproj",
-        "projectName": "cosmos-db-processor",
-        "projectPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor/cosmos-db-processor.csproj",
+        "projectUniqueName": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Console/cosmos-db-processor.Console.csproj",
+        "projectName": "cosmos-db-processor.Console",
+        "projectPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Console/cosmos-db-processor.Console.csproj",
         "packagesPath": "/home/sunyam/.nuget/packages/",
-        "outputPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor/obj/",
+        "outputPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Console/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/sunyam/.nuget/NuGet/NuGet.Config"
