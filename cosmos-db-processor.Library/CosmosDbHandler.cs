@@ -16,7 +16,7 @@ public class CosmosDbHandler : ICosmosDbHandler
     public Database Database => _database;
     public Container Container => _container;
 
-    public async Task LoadDatabase(string databaseID, string containerID, string partitionKeyPath)
+    public async Task LoadDataSource(string databaseID, string containerID, string partitionKeyPath)
     {
         _database = await _client.CreateDatabaseIfNotExistsAsync(databaseID);
         _container = await _database.CreateContainerIfNotExistsAsync(

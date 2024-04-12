@@ -1,3 +1,5 @@
+namespace CosmosDBProcessor.Library;
+
 public interface IContainerItem
 {
     string Name { get; }
