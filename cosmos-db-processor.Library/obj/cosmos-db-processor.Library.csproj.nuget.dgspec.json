@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj": {}
+    "/workspaces/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj": {}
   },
   "projects": {
-    "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj": {
+    "/workspaces/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj",
+        "projectUniqueName": "/workspaces/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj",
         "projectName": "cosmos-db-processor.Library",
-        "projectPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj",
-        "packagesPath": "/home/sunyam/.nuget/packages/",
-        "outputPath": "/home/sunyam/Projects/csharp/personal/cosmos-db-processor/cosmos-db-processor.Library/obj/",
+        "projectPath": "/workspaces/cosmos-db-processor/cosmos-db-processor.Library/cosmos-db-processor.Library.csproj",
+        "packagesPath": "/home/vscode/.nuget/packages/",
+        "outputPath": "/workspaces/cosmos-db-processor/cosmos-db-processor.Library/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/sunyam/.nuget/NuGet/NuGet.Config"
+          "/home/vscode/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -42,6 +42,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            },
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "[3.38.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

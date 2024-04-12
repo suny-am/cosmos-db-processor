@@ -1,5 +1,6 @@
 using Microsoft.Azure.Cosmos;
-using GithubAPI.Library.GraphQL.Records;
+
+namespace CosmosDBProcessor.Library;
 
 public interface ICosmosDbHandler
 {
@@ -7,10 +8,10 @@ public interface ICosmosDbHandler
     public Database Database { get; }
     public Container Container { get; }
 
-    public Task UnitOfWork(IEnumerable<Repository> repositories, string workType);
-    public Task Create(Repository repository);
-    public Task<Repository> Read(Repository repository);
-    public Task Delete(Repository repository);
-    public Task Upsert(Repository repository);
+    public Task UnitOfWork(IEnumerable<IContainerItem> items, string workType);
+    public Task Create(IContainerItem item);
+    public Task<ItemResponse<IContainerItem>> Read(IContainerItem item);
+    public Task Delete(IContainerItem item);
+    public Task Upsert(IContainerItem item);
 
 }

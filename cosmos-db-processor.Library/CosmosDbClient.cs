@@ -1,8 +1,7 @@
 using Azure.Identity;
-using GithubAPI.Library.GraphQL.Records;
 using Microsoft.Azure.Cosmos;
 
-namespace GithubAPI.Library.Azure.Cosmos;
+namespace CosmosDBProcessor.Library;
 
 public class CosmosDbHandler : ICosmosDbHandler
 {
@@ -17,64 +16,64 @@ public class CosmosDbHandler : ICosmosDbHandler
     public Database Database => _database;
     public Container Container => _container;
 
-    public async Task LoadDatabase()
+    public async Task LoadDatabase(string databaseID, string containerID, string partitionKeyPath)
     {
-        _database = await _client.CreateDatabaseIfNotExistsAsync("gh-api-data");
+        _database = await _client.CreateDatabaseIfNotExistsAsync(databaseID);
         _container = await _database.CreateContainerIfNotExistsAsync(
-            id: "Repositories",
-            partitionKeyPath: "/name"
+            id: containerID,
+            partitionKeyPath: partitionKeyPath
         );
     }
 
-    public async Task UnitOfWork(IEnumerable<Repository> repositories, string workType)
+    public async Task UnitOfWork(IEnumerable<IContainerItem> items, string workType)
     {
-        foreach (var repository in repositories)
+        foreach (var item in items)
         {
             switch (workType)
             {
                 case "CREATE":
                     {
-                        await Create(repository);
+                        await Create(item);
                         break;
                     }
                 case "READ":
                     {
-                        await Read(repository);
+                        await Read(item);
                         break;
                     }
                 case "DELETE":
                     {
-                        await Delete(repository);
+                        await Delete(item);
                         break;
                     }
                 case "UPSERT":
                     {
-                        await Upsert(repository);
+                        await Upsert(item);
                         break;
                     }
             }
         }
     }
 
-    public async Task Upsert(Repository record)
+    public async Task Upsert(IContainerItem item)
     {
-        await _container.UpsertItemAsync(record, new PartitionKey(record.name));
+        await _container.UpsertItemAsync(item, new PartitionKey(item.Name));
     }
 
-    public async Task Create(Repository record)
+    public async Task Create(IContainerItem item)
     {
-        await _container.CreateItemAsync(record, new PartitionKey(record.name));
+        await _container.CreateItemAsync(item, new PartitionKey(item.Name));
     }
 
-    public async Task<Repository> Read(Repository record)
+    public async Task<ItemResponse<IContainerItem>> Read(IContainerItem searchItem)
     {
-        ItemResponse<Repository> repository = await _container.ReadItemAsync<Repository>(record.id, new PartitionKey(record.name));
-        return repository;
+        ItemResponse<IContainerItem> item = await _container.ReadItemAsync<IContainerItem>(searchItem.ID, new PartitionKey(searchItem.Name));
+        return item;
     }
 
-    public async Task Delete(Repository record)
+    public async Task Delete(IContainerItem record)
     {
-        await _container.DeleteItemAsync<Repository>(record.name, new PartitionKey(record.name));
+        await _container.DeleteItemAsync<IContainerItem>(record.Name, new PartitionKey(record.Name));
     }
 }
 
