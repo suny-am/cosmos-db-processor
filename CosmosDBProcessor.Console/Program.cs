@@ -21,6 +21,11 @@ catch (Exception ex)
     throw new Exception(ex.Message);
 }
 
-Console.WriteLine(handler.Container);
-Console.WriteLine(handler.Database);
-Console.WriteLine(handler.Client);
+var items = await handler.AllItems();
+
+if (items is null)
+{
+    Console.WriteLine("no items found");
+}
+
+Console.WriteLine("Item count from response: " + items!.Count);

@@ -1,5 +1,6 @@
 using Azure.Identity;
 using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.Cosmos.Linq;
 
 namespace CosmosDBProcessor.Library;
 
@@ -74,6 +75,25 @@ public class CosmosDbHandler : ICosmosDbHandler
     public async Task Delete(IContainerItem record)
     {
         await _container.DeleteItemAsync<IContainerItem>(record.Name, new PartitionKey(record.Name));
+    }
+
+    public async Task<FeedResponse<ContainerItem>?> AllItems()
+    {
+        IOrderedQueryable<ContainerItem> itemQuery = _container.GetItemLinqQueryable<ContainerItem>();
+
+        var matches = itemQuery
+            .Where(i => i != null);
+
+        using FeedIterator<ContainerItem> linqFeed = matches.ToFeedIterator();
+
+        FeedResponse<ContainerItem>? response = null;
+
+        while (linqFeed.HasMoreResults)
+        {
+            response = await linqFeed.ReadNextAsync();
+        }
+
+        return response;
     }
 }
 
